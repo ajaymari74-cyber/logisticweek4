@@ -1,6 +1,6 @@
 """
-Convert Week 4 Documentation to a Professional Word Document (.docx)
-Author: Ajay M - Senior Data Scientist & Documentation Specialist
+Comprehensive Word Document (.docx) Generator for Week 4 Project Report
+Author: Ajay M - Senior Data Scientist, ML Engineer & Logistics Analytics Consultant
 Target: docs/Week4_Predictive_Modeling_and_Optimization.docx
 """
 
@@ -23,13 +23,15 @@ figures_dir = os.path.join(project_root, "outputs", "figures")
 COLOR_NAVY_HEX = "1E3A8A"
 COLOR_TEAL_HEX = "0D9488"
 COLOR_SLATE_HEX = "0F172A"
-COLOR_LIGHT_BG_HEX = "F1F5F9"
+COLOR_LIGHT_BG_HEX = "F8FAFC"
+COLOR_ROW_ALT_HEX = "F1F5F9"
 COLOR_BORDER_HEX = "CBD5E1"
 
 RGB_NAVY = RGBColor(30, 58, 138)
 RGB_TEAL = RGBColor(13, 148, 136)
 RGB_SLATE = RGBColor(15, 23, 42)
 RGB_GRAY = RGBColor(100, 116, 139)
+RGB_WHITE = RGBColor(255, 255, 255)
 
 
 def set_cell_background(cell, fill_hex):
@@ -53,7 +55,7 @@ def set_cell_margins(cell, top=100, bottom=100, left=150, right=150):
     tcPr.append(tcMar)
 
 
-def create_callout_box(doc, title, text, border_color_hex=COLOR_TEAL_HEX, bg_hex="F8FAFC"):
+def create_callout_box(doc, title, text, border_color_hex=COLOR_TEAL_HEX, bg_hex=COLOR_LIGHT_BG_HEX):
     """Creates a styled callout box in Word."""
     tbl = doc.add_table(rows=1, cols=1)
     tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
@@ -77,7 +79,7 @@ def create_callout_box(doc, title, text, border_color_hex=COLOR_TEAL_HEX, bg_hex
     
     p = cell.paragraphs[0]
     p.paragraph_format.space_before = Pt(2)
-    p.paragraph_format.space_after = Pt(4)
+    p.paragraph_format.space_after = Pt(3)
     run_title = p.add_run(f"📌 {title}\n")
     run_title.font.name = "Arial"
     run_title.font.size = Pt(10.5)
@@ -95,7 +97,7 @@ def create_callout_box(doc, title, text, border_color_hex=COLOR_TEAL_HEX, bg_hex
 def build_word_document():
     doc = Document()
     
-    # Page setup
+    # Page setup - Margins
     for section in doc.sections:
         section.top_margin = Inches(1.0)
         section.bottom_margin = Inches(1.0)
@@ -103,10 +105,18 @@ def build_word_document():
         section.right_margin = Inches(1.0)
         
         # Header / Footer
+        header = section.header
+        hp = header.paragraphs[0]
+        hp.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+        h_run = hp.add_run("Week 4: Predictive Modeling & Optimization | Ajay M")
+        h_run.font.name = "Arial"
+        h_run.font.size = Pt(8.5)
+        h_run.font.color.rgb = RGB_GRAY
+        
         footer = section.footer
-        f_p = footer.paragraphs[0]
-        f_p.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-        f_run = f_p.add_run("Week 4: Predictive Modeling & Optimization in Logistics Systems | Ajay M")
+        fp = footer.paragraphs[0]
+        fp.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+        f_run = fp.add_run("Candidate: Ajay M  •  Track: Advanced Logistics Analytics & ML Internship")
         f_run.font.name = "Arial"
         f_run.font.size = Pt(8.5)
         f_run.font.color.rgb = RGB_GRAY
@@ -118,7 +128,7 @@ def build_word_document():
     c_cell = cover_table.cell(0, 0)
     c_cell.width = Inches(6.5)
     set_cell_background(c_cell, COLOR_NAVY_HEX)
-    set_cell_margins(c_cell, top=400, bottom=400, left=300, right=300)
+    set_cell_margins(c_cell, top=450, bottom=450, left=320, right=320)
     
     cp = c_cell.paragraphs[0]
     cp.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -133,22 +143,69 @@ def build_word_document():
     title_run.font.name = "Arial"
     title_run.font.size = Pt(20)
     title_run.font.bold = True
-    title_run.font.color.rgb = RGBColor(255, 255, 255)
+    title_run.font.color.rgb = RGB_WHITE
     
-    sub_run = cp.add_run("Delivery Time Prediction, Anti-Leakage Pipeline Benchmarking, and Multi-Region Operational Resource Optimization\n\n\n")
+    sub_run = cp.add_run("Logistics Delivery Time Prediction, Anti-Leakage Pipeline Benchmarking, and Multi-Region Operational Resource Optimization\n\n\n")
     sub_run.font.name = "Arial"
     sub_run.font.size = Pt(12)
     sub_run.font.color.rgb = RGBColor(226, 232, 240)
     
-    meta_run = cp.add_run(
-        "Candidate Name: Ajay M\n"
-        "Role: Senior Data Scientist & Optimization Specialist\n"
-        "Environment: Python 3.14 / Scikit-Learn 1.9.0 / SciPy 1.18.1\n"
+    meta_box = cp.add_run(
+        "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        "CANDIDATE INFORMATION & METADATA\n"
+        "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        "Author / Candidate Name: Ajay M\n"
+        "Role: Senior Data Scientist, ML Engineer & Optimization Consultant\n"
+        "Academic Track: Logistics Analytics & Machine Learning Internship\n"
+        "Technical Stack: Python 3.14 / Scikit-Learn 1.9.0 / SciPy 1.18.1\n"
+        "GitHub Repository: https://github.com/ajaymari74-cyber/logisticweek4.git\n"
         "Submission Date: August 2026\n"
     )
-    meta_run.font.name = "Arial"
-    meta_run.font.size = Pt(10.5)
-    meta_run.font.color.rgb = RGBColor(255, 255, 255)
+    meta_box.font.name = "Arial"
+    meta_box.font.size = Pt(10)
+    meta_box.font.color.rgb = RGB_WHITE
+    
+    doc.add_page_break()
+    
+    # --- 2. CANDIDATE DECLARATION & APPROVAL PAGE ---
+    h_dec = doc.add_heading("Certificate of Originality & Candidate Declaration", level=1)
+    h_dec.paragraph_format.space_before = Pt(10)
+    h_dec.paragraph_format.space_after = Pt(12)
+    h_dec.runs[0].font.name = "Arial"
+    h_dec.runs[0].font.size = Pt(15)
+    h_dec.runs[0].font.color.rgb = RGB_NAVY
+    
+    p_dec1 = doc.add_paragraph()
+    p_dec1.paragraph_format.line_spacing = 1.2
+    r_dec1 = p_dec1.add_run(
+        "I, Ajay M, hereby declare that this project report entitled \"Week 4: Predictive Modeling and Optimization in Logistics Systems\" "
+        "is a bonafide record of independent analytical and technical work executed by me under the Advanced Logistics Analytics and Machine Learning Internship Program. "
+        "All data preprocessing, feature engineering, machine learning modeling, cross-validation, hyperparameter tuning, operations research optimization, "
+        "and empirical result documentation were developed and validated by me using reproducible Python workflows."
+    )
+    r_dec1.font.name = "Arial"
+    r_dec1.font.size = Pt(10)
+    r_dec1.font.color.rgb = RGB_SLATE
+    
+    doc.add_paragraph()
+    
+    sig_table = doc.add_table(rows=2, cols=2)
+    sig_table.alignment = WD_TABLE_ALIGNMENT.CENTER
+    sig_table.autofit = False
+    sig_table.columns[0].width = Inches(3.2)
+    sig_table.columns[1].width = Inches(3.2)
+    
+    cell_s1 = sig_table.cell(0, 0)
+    p_s1 = cell_s1.paragraphs[0]
+    p_s1.add_run("Candidate Signature:\n\n_______________________\n").font.bold = True
+    r_name = p_s1.add_run("Ajay M\nLead Data Scientist & Candidate")
+    r_name.font.color.rgb = RGB_NAVY
+    
+    cell_s2 = sig_table.cell(0, 1)
+    p_s2 = cell_s2.paragraphs[0]
+    p_s2.add_run("Internship Evaluator / Mentor:\n\n_______________________\n").font.bold = True
+    r_eval = p_s2.add_run("Academic Project Reviewer\nFaculty of Data Science & Logistics")
+    r_eval.font.color.rgb = RGB_NAVY
     
     doc.add_page_break()
     
@@ -160,7 +217,7 @@ def build_word_document():
     in_table = False
     table_lines = []
     
-    # Mapping of figures to insert under sections
+    # Track inserted figures
     inserted_figures = set()
     
     for line in lines:
@@ -174,7 +231,6 @@ def build_word_document():
         elif in_table:
             # Process table
             if table_lines:
-                # Filter out separator line
                 parsed_rows = []
                 for t_row in table_lines:
                     if re.match(r"^\|[\s\-:|]+\|$", t_row):
@@ -204,9 +260,9 @@ def build_word_document():
                                 set_cell_background(cell, COLOR_NAVY_HEX)
                                 run.font.bold = True
                                 run.font.size = Pt(9)
-                                run.font.color.rgb = RGBColor(255, 255, 255)
+                                run.font.color.rgb = RGB_WHITE
                             else:
-                                bg_color = COLOR_LIGHT_BG_HEX if r_idx % 2 == 1 else "FFFFFF"
+                                bg_color = COLOR_ROW_ALT_HEX if r_idx % 2 == 1 else "FFFFFF"
                                 set_cell_background(cell, bg_color)
                                 run.font.size = Pt(8.5)
                                 run.font.color.rgb = RGB_SLATE
@@ -217,7 +273,6 @@ def build_word_document():
             
         # Headings
         if stripped.startswith("# "):
-            # Handled on cover page
             continue
         elif stripped.startswith("## "):
             h_text = stripped[3:].strip()
@@ -236,7 +291,7 @@ def build_word_document():
                 if os.path.exists(f_path) and "04" not in inserted_figures:
                     doc.add_paragraph()
                     doc.add_picture(f_path, width=Inches(6.0))
-                    p_cap = doc.add_paragraph("Figure 4: Predictive Model Performance Comparison (MAE, RMSE, R²)")
+                    p_cap = doc.add_paragraph("Figure 4: Predictive Model Performance Benchmarks (MAE, RMSE, R²)")
                     p_cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
                     p_cap.runs[0].font.size = Pt(8.5)
                     p_cap.runs[0].font.italic = True
@@ -253,6 +308,17 @@ def build_word_document():
                     p_cap.runs[0].font.italic = True
                     inserted_figures.add("05")
                     
+            elif "15. Hyperparameter Tuning" in h_text:
+                f_path = os.path.join(figures_dir, "07_hyperparameter_tuning_impact.png")
+                if os.path.exists(f_path) and "07" not in inserted_figures:
+                    doc.add_paragraph()
+                    doc.add_picture(f_path, width=Inches(5.8))
+                    p_cap = doc.add_paragraph("Figure 7: GridSearchCV Hyperparameter Tuning Impact Comparison")
+                    p_cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
+                    p_cap.runs[0].font.size = Pt(8.5)
+                    p_cap.runs[0].font.italic = True
+                    inserted_figures.add("07")
+                    
             elif "18. Prediction Analysis" in h_text:
                 f_path1 = os.path.join(figures_dir, "01_actual_vs_predicted.png")
                 f_path2 = os.path.join(figures_dir, "02_residual_analysis.png")
@@ -260,7 +326,7 @@ def build_word_document():
                 if os.path.exists(f_path1) and "01" not in inserted_figures:
                     doc.add_paragraph()
                     doc.add_picture(f_path1, width=Inches(5.5))
-                    p_cap = doc.add_paragraph("Figure 1: Actual vs. Predicted Delivery Time Scatter Plot")
+                    p_cap = doc.add_paragraph("Figure 1: Actual vs. Predicted Delivery Time Scatter Plot (y = x Line)")
                     p_cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
                     p_cap.runs[0].font.size = Pt(8.5)
                     p_cap.runs[0].font.italic = True
@@ -343,7 +409,6 @@ def build_word_document():
             p.paragraph_format.space_after = Pt(3)
             p.paragraph_format.line_spacing = 1.15
             
-            # Simple bold parsing
             parts = re.split(r"(\*\*.*?\*\*)", stripped)
             for pt in parts:
                 if pt.startswith("**") and pt.endswith("**"):
