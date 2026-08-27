@@ -1,0 +1,32 @@
+{
+    "target_model": "Gradient Boosting",
+    "best_hyperparameters": {
+        "model__learning_rate": 0.03,
+        "model__max_depth": 3,
+        "model__min_samples_leaf": 3,
+        "model__min_samples_split": 2,
+        "model__n_estimators": 120
+    },
+    "best_cv_mae": 0.9657574678997769,
+    "test_metrics": {
+        "MAE": 0.9421,
+        "RMSE": 1.219,
+        "R2": 0.7264,
+        "MAPE_Percent": 26.87,
+        "Max_Error": 7.8955
+    },
+    "cv_metrics": {
+        "CV_Mean_MAE": 0.9658,
+        "CV_Std_MAE": 0.0755,
+        "CV_Mean_R2": 0.6696,
+        "CV_Std_R2": 0.0414,
+        "All_CV_MAE_Folds": [
+            0.9318,
+            1.1159,
+            0.9177,
+            0.9404,
+            0.9229
+        ]
+    },
+    "tuning_duration_seconds": 31.187846099957824
+}

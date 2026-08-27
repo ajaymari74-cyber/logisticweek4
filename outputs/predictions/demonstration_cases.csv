@@ -1,0 +1,6 @@
+Shipping_Mode,Distance_KM,Quantity,Product_Category,Region,Warehouse_Code,Actual_Delivery_Days,Predicted_Delivery_Days,Absolute_Error
+Ground Freight,634.1,1,Healthcare Supplies,South,WH-West,8.0,7.36,0.64
+Same-Day Courier,316.4,10,Apparel,East,WH-East,1.7,2.33,0.63
+Express Air,1364.7,4,Electronics,South,WH-North,4.3,3.44,0.86
+Standard Delivery,269.3,3,Electronics,West,WH-North,6.6,6.47,0.13
+Express Air,1533.9,4,Healthcare Supplies,South,WH-East,11.55,3.65,7.9

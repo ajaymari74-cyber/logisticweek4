@@ -1,0 +1,6 @@
+Region,Demand_Shipments,Baseline_Cost_USD,Optimized_Cost_USD,Regional_Cost_Reduction_USD,Savings_Percent,Baseline_Avg_Time_Days,Optimized_Avg_Time_Days
+Central,172,15974.29,13904.89,2069.4,12.95,4.89,5.0
+East,228,18866.49,16519.48,2347.01,12.44,5.06,5.0
+North,320,30140.32,23941.87,6198.45,20.57,4.9,5.0
+South,252,23430.95,22196.52,1234.43,5.27,5.19,5.0
+West,278,26397.28,22957.56,3439.72,13.03,4.97,5.0

@@ -1,0 +1,35 @@
+Feature,Importance_Score,Relative_Contribution_Percent
+Estimated_Delivery_Days,0.821645364312195,82.16
+Distance_KM,0.04909079197341328,4.91
+Shipping_Cost_USD,0.04630623102154459,4.63
+Cost_Per_KM,0.036059959957608606,3.61
+Value_Density,0.007062189034841513,0.71
+Cost_Per_Unit,0.00702251724475471,0.7
+Order_Day,0.006722933280740722,0.67
+Quantity,0.004535690407865804,0.45
+Order_Month,0.00338833130809233,0.34
+Shipping_Mode_Ground Freight,0.0033648563430491193,0.34
+Order_DayOfWeek,0.003188317370576338,0.32
+Sales_USD,0.003063833420936669,0.31
+Region_North,0.0014576193989672736,0.15
+Order_Processing_Days,0.0013100795492539206,0.13
+Shipping_Mode_Standard Delivery,0.0010563590966178925,0.11
+Warehouse_Code_WH-West,0.0008467930163941923,0.08
+Customer_Segment_Small Business,0.0008247226996919196,0.08
+Is_Local_Dispatch,0.0007870107110515617,0.08
+Warehouse_Code_WH-East,0.0006221784657847794,0.06
+Product_Category_Healthcare Supplies,0.0005083144292851197,0.05
+Product_Category_Electronics,0.00043259467656351107,0.04
+Region_East,0.00029295361254431647,0.03
+Warehouse_Code_WH-South,0.00024325058274214296,0.02
+Region_South,0.00010229093165814333,0.01
+Shipping_Mode_Same-Day Courier,6.481715382650018e-05,0.01
+Is_Weekend,0.0,0.0
+Customer_Segment_Corporate,0.0,0.0
+Customer_Segment_Home Office,0.0,0.0
+Product_Category_Industrial Machinery,0.0,0.0
+Product_Category_Office Supplies,0.0,0.0
+Warehouse_Code_WH-North,0.0,0.0
+Region_West,0.0,0.0
+Distance_Category_Medium,0.0,0.0
+Distance_Category_Short,0.0,0.0
